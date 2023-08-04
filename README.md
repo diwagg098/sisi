@@ -7,6 +7,6 @@
 5. run query sql di sisi.sql dalam project
 6. run php artisan serve
 
-credential :
-    email : superadmin@mail.com
-    password : diwa123456
+credential
+ - email : superadmin@mail.com
+ - password : diwa123456
