@@ -27,10 +27,6 @@
                       placeholder="Menu Link">
               </div>
               <div class="form-group">
-                  <input type="text" class="form-control form-control-user" name="menu_icon" id=""
-                      placeholder="Menu Icon">
-              </div>
-              <div class="form-group">
                   <select name="id_level" id="" class="form-control">
                     <option value="">-- Pilih Level --</option>
                     @foreach($data as $item)

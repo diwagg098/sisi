@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Karyawan;
 use App\Models\Menu;
 use App\Models\MenuUser;
 use Illuminate\Http\Request;
@@ -33,7 +34,7 @@ class AuthController extends Controller
                 $menu = MenuUser::where('user_id', '=',Auth()->user()->id)
                             ->where('menus.id_level','=', $row->id_level)
                             ->where('menus.delete_mark', false)
-                            ->select('menus.menu_name','menus.menu_link','menus.menu_icon', 'menus.id_level')
+                            ->select('menus.menu_name','menus.menu_link', 'menus.id_level')
                             ->join('menus', 'menus.id', '=','menu_users.menu_id')
                             ->join('menu_levels', 'menu_levels.id', '=', 'menus.id_level')
                             ->get();
@@ -47,10 +48,15 @@ class AuthController extends Controller
                 array_push($access, $access_detail);
             }
 
+            $karyawan = Karyawan::where('user_id', Auth::user()->id)->first();
+
             $request->session()->put([
                 'user' => Auth::user(),
-                'access' => $access 
+                'access' => $access ,
+                'id_karyawan' => $karyawan->id
             ]);
+
+
             return redirect('/');
         }
 

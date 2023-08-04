@@ -18,8 +18,8 @@ return new class extends Migration
             $table->integer('user_id');
             $table->integer('menu_id');
             $table->boolean('delete_mark')->default(false);
-            $table->string('created_by');
-            $table->string('update_by');
+            $table->string('created_by')->nullable();
+            $table->string('update_by')->nullable();
             $table->string('description', 300);
             $table->string('status', 30);
             $table->timestamps();

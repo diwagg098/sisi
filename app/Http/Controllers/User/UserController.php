@@ -59,7 +59,8 @@ class UserController extends Controller
                 'delete_mark' => false,
                 'password' => Hash::make($request->password),
                 'status_user' => 'active',
-                'create_by' => Auth::user()->nama_user
+                'create_by' => Auth::user()->nama_user,
+                'update_by' => null
             ];
 
             $user_id = DB::table('users')->insertGetId($data_user);

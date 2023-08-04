@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Karyawan</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Leaves</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -14,9 +14,9 @@
                             <th>#</th>
                             <th>Nama</th>
                             <th>Jabatan</th>
-                            <th>Gaji</th>
-                            <th>Join Date</th>
-                            <th>Status Karyawan</th>
+                            <th>Tanggal Cuti</th>
+                            <th>Alasan</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -24,15 +24,22 @@
                     @foreach($data as $row)
                         <tr>
                             <td>{{ $loop->iteration}}</td>
-                            <td>{{ $row->user->nama_user }}</td>
+                            <td>{{ $row->nama_user }}</td>
                             <td>{{ $row->jabatan}}</td>
-                            <td>{{ $row->gaji}}</td>
-                            <td>{{ date('d-m-Y', strtotime($row->join_date))}}</td>
+                            <td>{{ date('d-m-Y', strtotime($row->tanggal))}}</td>
+                            <td>{{ $row->reason}}</td>
                             <td>{{ $row->status}}</td>
                             <td>
-                                <a href="/karyawan/edit/{{$row->id}}" class="btn btn-warning btn-circle btn-sm">
-                                    <i class="fa-solid fa-edit"></i>
-                                </a>
+                                @if ($row->status == "PENDING")
+                                <form action="{{ url('/cuti/approve')}}" method="POST">
+                                    @csrf
+                                    <input type="text" value="{{ $row->id}}" name="id_cuti" hidden>
+                                    <input type="hidden" value="approved" name="status">
+                                    <button type="submit" class="btn btn-success btn-circle btn-sm">
+                                        <i class="fa-solid fa-check"></i>
+                                    </button>
+                                </form>
+                                @endif
                             </td>
                         </tr>
                         @endforeach

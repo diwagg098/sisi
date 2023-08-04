@@ -28,10 +28,6 @@
                       placeholder="Menu Link">
               </div>
               <div class="form-group">
-                  <input type="text" class="form-control form-control-user" name="menu_icon" value="{{ $menu->menu_icon}}" id=""
-                      placeholder="Menu Icon">
-              </div>
-              <div class="form-group">
                   <select name="id_level" id="" class="form-control">
                     <option value="{{ $menu->level->id}}">{{ $menu->level->level}}</option>
                     @foreach($level as $item)

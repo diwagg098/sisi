@@ -18,10 +18,9 @@ return new class extends Migration
             $table->integer('id_level');
             $table->string('menu_name');
             $table->string('menu_link');
-            $table->string('menu_icon');
-            $table->integer('parent_id');
-            $table->string('create_by');
-            $table->string('update_by');
+            $table->integer('parent_id')->nullable();
+            $table->string('create_by')->nullable();
+            $table->string('update_by')->nullable();
             $table->boolean('delete_mark')->default(false);
             $table->timestamps();
         });

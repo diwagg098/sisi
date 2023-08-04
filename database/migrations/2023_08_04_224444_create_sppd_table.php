@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('menu_users', function (Blueprint $table) {
+        Schema::create('sppd', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('menu_id');
-            $table->boolean('delete_mark')->default(false);
-            $table->string('update_by')->nullable();
+            $table->string('nama_file');
+            $table->string('url');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('menu_user');
+        Schema::dropIfExists('sppd');
     }
 };

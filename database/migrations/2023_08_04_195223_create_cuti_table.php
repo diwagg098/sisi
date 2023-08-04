@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('menu_users', function (Blueprint $table) {
+        Schema::create('cuti', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('menu_id');
-            $table->boolean('delete_mark')->default(false);
-            $table->string('update_by')->nullable();
+            $table->integer('id_karyawan');
+            $table->date('tanggal');
+            $table->string('reason');
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('menu_user');
+        Schema::dropIfExists('cuti');
     }
 };

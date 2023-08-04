@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('status');
             $table->string('param');
             $table->boolean('delete_mark')->default(false);
-            $table->string('update_by');
+            $table->string('update_by')->nullable();
             $table->timestamps();
         });
     }

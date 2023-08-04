@@ -22,11 +22,10 @@ return new class extends Migration
             $table->string('no_hp', 30);
             $table->string('wa', 30);
             $table->string('pin', 30);
-            $table->string('id_jenis_user', 3);
             $table->string('status_user', 30)->default('active');
             $table->boolean('delete_mark')->default(false);
-            $table->string('create_by',60);
-            $table->string('update_by');
+            $table->string('create_by',60)->nullable();
+            $table->string('update_by')->nullable();
             $table->timestamps();
         });
     }

@@ -8,7 +8,6 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <a href="/users/add-user" class="btn btn-primary">add user</a>
                 <table class="table table-striped" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>

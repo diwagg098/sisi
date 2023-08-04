@@ -35,7 +35,6 @@ class MenuController extends Controller
                 'id_level' => intval($request->id_level),
                 'menu_name' => $request->menu_name,
                 'menu_link' => $request->menu_link,
-                'menu_icon' => $request->menu_icon,
                 'create_by' => Auth::user()->nama_user
             ];
             

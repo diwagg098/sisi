@@ -16,7 +16,6 @@
                             <th>Menu Name</th>
                             <th>Level</th>
                             <th>Link</th>
-                            <th>Menu Icon</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -27,7 +26,6 @@
                             <td>{{ $row->menu_name }}</td>
                             <td>{{ $row->level->level}}</td>
                             <td>{{ $row->menu_link}}</td>
-                            <td>{{ $row->menu_icon }}</td>
                             <td>
                                 <div class="">
                                     <a href="/menu/edit/{{$row->id}}" class="btn btn-warning btn-circle btn-sm">
